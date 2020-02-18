@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="com.fourtitude.asia.recipe.module.recipeDetail.RecipeDetailViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"/>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:animateLayoutChanges="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true">
+
+                        <com.fourtitude.asia.recipe.customViews.SquareLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/roundedImageView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                bind:setImage="@{viewModel.recipeDetailForm.recipeModel.recipe_image}"
+                                bind:placeHolder="@{@drawable/gallery250}"
+                                android:background="@color/white"
+                                android:scaleType="centerCrop"
+                                android:transitionName="@string/transition_image"/>
+
+                        </com.fourtitude.asia.recipe.customViews.SquareLayout>
+
+                        <Button
+                            android:id="@+id/btn_select_image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text='@{viewModel.recipeDetailForm.newRecipe ? @string/add_image : @string/update_image, default = @string/add_image}'/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="11dp"
+                            android:layout_marginEnd="11dp"
+                            android:textSize="14sp"
+                            android:text="@string/name"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:textSize="15sp"
+                            android:text='@={viewModel.recipeDetailForm.recipeModel.recipe_name}'/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="11dp"
+                            android:layout_marginEnd="11dp"
+                            android:textSize="14sp"
+                            android:text="@string/ingredients"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:textSize="15sp"
+                            android:text='@={viewModel.recipeDetailForm.recipeModel.recipe_ingredient}'/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="11dp"
+                            android:layout_marginEnd="11dp"
+                            android:textSize="14sp"
+                            android:text="@string/steps"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:textSize="15sp"
+                            android:text='@={viewModel.recipeDetailForm.recipeModel.recipe_steps}'/>
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:visibility='@{viewModel.recipeDetailForm.loadingProgress ? View.VISIBLE : View.GONE, default = gone}'>
+
+                        <include
+                            android:id="@+id/loadingView"
+                            layout="@layout/loading_view" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

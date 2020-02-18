@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">F Recipe</string>
+    <string name="try_again">Something went wrong, please try again later</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="recipe_list">Recipe List</string>
+    <string name="recipe_detail">Recipe Detail</string>
+    <string name="new_recipe">New Recipe</string>
+    <string name="steps">Steps</string>
+    <string name="save">Save</string>
+    <string name="delete_recipe">Delete</string>
+    <string name="name">Name</string>
+    <string name="add_image">Add Image</string>
+    <string name="update_image">Update Image</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="allow_camera_gallery_access">Please allow camera/gallery access</string>
+    <string name="transition_image">transitionImage</string>
+</resources>
