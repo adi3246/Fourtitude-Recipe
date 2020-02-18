@@ -6,7 +6,7 @@ import android.os.AsyncTask
 import com.fourtitude.asia.recipe.ApplicationClass
 import com.fourtitude.asia.recipe.base.BaseViewModel
 import com.fourtitude.asia.recipe.module.recipeDetail.model.RecipeDetailForm
-import com.fourtitude.asia.recipe.module.recipeList.RecipeRepository
+import com.fourtitude.asia.recipe.RecipeRepository
 import com.fourtitude.asia.recipe.module.recipeList.model.RecipeModel
 import com.fourtitude.asia.recipe.room.entity.Recipe
 
@@ -25,7 +25,8 @@ class RecipeDetailViewModel: BaseViewModel()  {
     val recipeDetailForm = RecipeDetailForm()
     var recipeType = 0
     var updateRecipeList = false
-    private var repository: RecipeRepository = RecipeRepository(ApplicationClass.contextApp as Application)
+    private var repository: RecipeRepository =
+        RecipeRepository(ApplicationClass.contextApp as Application)
 
     fun saveRecipe(){
         updateRecipeList = true

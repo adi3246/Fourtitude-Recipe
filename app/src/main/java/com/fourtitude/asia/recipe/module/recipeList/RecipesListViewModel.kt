@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.os.AsyncTask
 import com.fourtitude.asia.recipe.ApplicationClass
+import com.fourtitude.asia.recipe.RecipeRepository
 import com.fourtitude.asia.recipe.SingleLiveEvent
 import com.fourtitude.asia.recipe.base.BaseViewModel
 import com.fourtitude.asia.recipe.module.recipeList.model.RecipeModel
@@ -26,7 +27,8 @@ class RecipesListViewModel: BaseViewModel()  {
 
     val recipesListForm = RecipesListForm()
 
-    private var repository: RecipeRepository = RecipeRepository(ApplicationClass.contextApp as Application)
+    private var repository: RecipeRepository =
+        RecipeRepository(ApplicationClass.contextApp as Application)
     private var allRecipes: List<Recipe>
     var recipeEntity: List<Recipe>? = null
     val recipesList: ArrayList<RecipeModel> = ArrayList()

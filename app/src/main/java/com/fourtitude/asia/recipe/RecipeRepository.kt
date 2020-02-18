@@ -1,4 +1,4 @@
-package com.fourtitude.asia.recipe.module.recipeList
+package com.fourtitude.asia.recipe
 
 import android.app.Application
 import android.os.AsyncTask
